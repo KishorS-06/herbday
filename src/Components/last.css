@@ -1,0 +1,186 @@
+/* Base styles */
+.last-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    color: white;
+    text-align: center;
+    animation: fade-in 1s ease-in-out;
+    padding: 1rem;
+}
+
+.suspense-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    width: 90%;
+    max-width: 500px;
+}
+
+.suspense-box h3 {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.password-input, .message-input {
+    padding: 0.8rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    margin: 0.5rem 0;
+}
+
+.verify-btn {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #ff6b81;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 120px;
+}
+
+.verify-btn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+}
+
+.error-message {
+    color: red;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    margin-top: 0.5rem;
+}
+
+/* Message Display */
+.message-display {
+    text-align: center;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    margin: 1rem;
+}
+
+.animated-message {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-weight: bold;
+    color: #ff4757;
+    text-shadow: 2px 2px 8px rgba(255, 71, 87, 0.4);
+    line-height: 1.5;
+}
+
+#d {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(160deg, #ff6b81, #ff4757);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: clamp(0.875rem, 3vw, 1rem);
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 150px;
+}
+
+#d:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 71, 87, 0.5);
+}
+
+/* Media Queries */
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .last-container {
+        padding: 0.5rem;
+    }
+
+    .suspense-box {
+        padding: 1rem;
+    }
+
+    .message-display {
+        padding: 1rem;
+    }
+
+    .animated-message {
+        font-size: 1rem;
+    }
+}
+
+/* Medium devices (tablets, 600px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .suspense-box {
+        padding: 1.2rem;
+    }
+
+    .message-display {
+        padding: 1.5rem;
+    }
+}
+
+/* Landscape mode for mobile devices */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .last-container {
+        padding: 0.5rem;
+    }
+
+    .suspense-box {
+        padding: 0.8rem;
+    }
+
+    .message-display {
+        padding: 0.8rem;
+    }
+
+    .animated-message {
+        font-size: 0.9rem;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .suspense-box, .message-display {
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .last-container {
+        background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    }
+
+    .suspense-box, .message-display {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .suspense-box h3 {
+        color: white;
+    }
+
+    .password-input, .message-input {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .animated-message {
+        color: #ff6b81;
+    }
+}

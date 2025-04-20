@@ -1,0 +1,177 @@
+/* Base styles */
+.outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    color: white;
+    text-align: center;
+    animation: fade-in 1s ease-in-out;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+/* Smooth fade-in animation */
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Styling for the box */
+.box {
+    border-radius: 20px;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Styling */
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    color: #ff4757;
+    line-height: 1.4;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Button Styling */
+button {
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    background: linear-gradient(160deg, #a54e07, #f8d347);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    width: auto;
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button glow effect */
+button:hover {
+    background: linear-gradient(160deg, #f8d347, #a54e07);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Media Queries */
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .outer {
+        padding: 1rem 0.5rem;
+    }
+
+    .box {
+        width: 95%;
+        padding: 1.2rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        min-width: 180px;
+        font-size: 1rem;
+    }
+}
+
+/* Medium devices (tablets, 600px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .box {
+        width: 85%;
+        padding: 1.8rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Landscape mode for mobile devices */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .outer {
+        padding: 0.5rem;
+        min-height: 100vh;
+    }
+
+    .box {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    button {
+        padding: 0.6rem 1.2rem;
+        min-width: 160px;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .box {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .outer {
+        background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    }
+
+    .box {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        color: gold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    button {
+        background: linear-gradient(160deg, #a54e07, #f8d347);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover {
+        background: linear-gradient(160deg, #f8d347, #a54e07);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+}

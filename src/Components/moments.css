@@ -1,0 +1,324 @@
+/* Background with soft gradient */
+.moments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    color: white;
+    text-align: center;
+    animation: fade-in 1s ease-in-out;
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+}
+
+/* Smooth fade-in animation */
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    color: gold;
+    padding: 0 1rem;
+}
+
+/* Scrollable container for the images */
+.scroll-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 0;
+    margin: 0 -1rem;
+}
+
+/* Smooth and Continuous Scrolling Effect */
+.image-slider {
+    display: inline-flex;
+    gap: 1rem;
+    padding: 0 0.5rem;
+    animation: slide 60s linear infinite;
+    will-change: transform;
+}
+
+/* Individual image blocks */
+.image-box {
+    flex: 0 0 auto;
+    width: clamp(200px, 30vw, 300px);
+    height: clamp(250px, 35vw, 350px);
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 0.5rem;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Caption */
+.image-box p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    font-weight: bold;
+    color: #333;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.image-box:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Continuous Looping Effect */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% - 1rem));
+    }
+}
+
+/* Pauses scrolling when an image is clicked */
+.image-slider.paused {
+    animation-play-state: paused;
+}
+
+/* Popup - Properly centered */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.popup > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 90vh;
+    background: rgba(219, 41, 228, 0.152);
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure the image is properly centered */
+.popup img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Popup caption styling */
+.popup p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: bold;
+    color: white;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 100%;
+    line-height: 1.4;
+}
+
+/* Smooth popup animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.close-btn {
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    background: #ff4757;
+    color: white;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.close-btn:hover {
+    background: #ff6b81;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.5);
+}
+
+/* Button to go to Important Page */
+#b {
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    background: linear-gradient(160deg, #a54e07, #f8d347);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-top: 2rem;
+    width: auto;
+    min-width: 200px;
+}
+
+#b:hover {
+    background: linear-gradient(160deg, #f8d347, #a54e07);
+    box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05);
+}
+
+/* Media Queries */
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .moments-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .image-box {
+        width: 180px;
+        height: 220px;
+    }
+
+    .scroll-container {
+        margin: 0;
+    }
+
+    .popup {
+        width: 95%;
+        padding: 0.75rem;
+    }
+
+    .popup img {
+        max-height: 60vh;
+    }
+
+    .close-btn {
+        margin-top: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+/* Medium devices (tablets, 600px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    .image-box {
+        width: 220px;
+        height: 270px;
+    }
+}
+
+/* Landscape mode for mobile devices */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+    .moments-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .image-box {
+        width: 160px;
+        height: 180px;
+    }
+
+    .popup {
+        max-height: 95vh;
+        padding: 0.5rem;
+    }
+
+    .popup img {
+        max-height: 80vh;
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    #b {
+        margin-top: 1rem;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .image-box {
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .moments-container {
+        background: linear-gradient(120deg, #fbc2eb, #a6c1ee);
+    }
+
+    .image-box {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    .popup {
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .popup p {
+        color: #333;
+    }
+
+    .image-box p {
+        background: rgba(255, 255, 255, 0.95);
+    }
+}
