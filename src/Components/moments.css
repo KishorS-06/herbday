@@ -42,7 +42,7 @@ h1 {
     display: inline-flex;
     gap: 1rem;
     padding: 0 0.5rem;
-    animation: slide 60s linear infinite;
+    animation: slide 120s linear infinite;
     will-change: transform;
 }
 
