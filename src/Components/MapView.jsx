@@ -11,9 +11,9 @@ const MapView = () => {
         {
             id: 1,
             name: "unga veedu ulla",
-            description: "the place where we you use most",
-            clue: "Near the sinck",
-            isGiftLocation: false,
+            description: "guess pannu",
+            clue: "pakathu room lla",
+            isGiftLocation: true,
             emoji: "☕"
         },
         {
@@ -21,7 +21,7 @@ const MapView = () => {
             name: "Unge veetu veliya",
             description: "Car Shead lla",
             clue: "Check behind the wall! 🔍",
-            isGiftLocation: true,
+            isGiftLocation: false,
             emoji: "🎭"
         },
         {
@@ -35,10 +35,10 @@ const MapView = () => {
         {
             id: 4,
             name: "Surprice",
-            description: "it's secret place",
-            clue: "Unga appa ta",
-            isGiftLocation: false,
-            emoji: "👨🏻"
+            description: "it's a secret place",
+            clue: "Unga amma ta",
+            isGiftLocation: true,
+            emoji: "👩"
         }
     ];
 
@@ -99,17 +99,9 @@ const MapView = () => {
             {foundClue && (
                 <div className="success-message">
                     <h2>🎉 You Found It! 🎉</h2>
-                    <p>Your gift is waiting at Brooks!</p>
+                    <p>Your gift is waiting openn pannu</p>
                 </div>
             )}
-
-            <button 
-                className="navigate-btn" 
-                onClick={() => navigate('/moments')}
-                style={{ opacity: foundClue ? 1 : 0.5 }}
-            >
-                {foundClue ? "Now Let's Continue Our Journey..." : "Keep Looking..."}
-            </button>
         </div>
     );
 };

@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import "./theend.css";
-import wish from "../assets/wish.mp4"; // Ensure correct path to your video
+import wish from "../assets/wish.mp4";
+import { useNavigate } from "react-router-dom";
 
 const Theend = () => {
   const [videoEnded, setVideoEnded] = useState(false);
@@ -10,6 +11,7 @@ const Theend = () => {
   const [feedbackSent, setFeedbackSent] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const videoRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleVideoEnd = () => {
     setVideoEnded(true);
@@ -62,9 +64,14 @@ const Theend = () => {
       </div>
 
       {videoEnded && (
-        <button className="replay-button" onClick={handleReplay}>
-          <span className="replay-icon">↺</span> Replay Video
-        </button>
+        <>
+          <button className="replay-button" onClick={handleReplay}>
+            <span className="replay-icon">↺</span> Replay Video
+          </button>
+          <button className="next-button" onClick={() => navigate("/map")}>
+            Time aairuchu lla
+          </button>
+        </>
       )}
 
       {showPopup && (
@@ -73,7 +80,9 @@ const Theend = () => {
             {feedbackSent ? (
               <div className="status-message success">
                 <div className="success-icon">✅</div>
-                <div className="success-message">Thank you.... please maariradha naa eppavum adhe kishor dhan expect pannuvan un kitta irundhu bcz vera yarum illa.Nee matured ah iruka solra but kolandhai lla sanda pottan ippavum apdi dhan panran unta mattum dha purunjuppa nnu nenaikran ennoda priority eppavum nee dhan once again thank you!!!!!! kanishkaaaaaa 🥹</div>
+                <div className="success-message">
+                  Thank you.... please maariradha naa eppavum adhe kishor dhan expect pannuvan un kitta irundhu bcz vera yarum illa. Nee matured ah iruka solra but kolandhai lla sanda pottan ippavum apdi dhan panran unta mattum dha purunjuppa nnu nenaikran ennoda priority eppavum nee dhan once again thank you!!!!!! kanishkaaaaaa 🥹
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="message-form">
